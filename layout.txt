@@ -1,0 +1,27 @@
+/root
+├── config.php
+├── index.php
+├── about.php
+├── services.php
+├── courses.php
+├── contact.php
+├── login.php
+├── process_contact.php
+├── partials/
+│   ├── header.php
+│   ├── navbar.php
+│   └── footer.php
+├── css/
+│   └── styles.css
+├── js/
+│   ├── script.js
+│   └── contact-validation.js
+├── images/
+│   ├── logo.png
+│   ├── logo0.png
+│   ├── about-us.jpg
+│   └── ...
+└── favicon/
+    ├── favicon.ico
+    ├── apple-touch-icon.png
+    └── ...

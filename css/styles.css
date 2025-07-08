@@ -1,0 +1,358 @@
+/* ============== CSS Variables ============== */
+:root {
+  /* Colors - Maintained as per original */
+  --primary-color: #001524;       /* Dark Blue */
+  --secondary-color: #0B3B49;     /* Dark Teal */
+  --background-dark: #0B3B49;     /* Dark Teal */
+  --accent-color: #15616D;        /* Teal */
+  --s-light-color: #638F8E;
+  --background-light: #B1BEB0;    /* Light Gray */
+  --light-color: #FFECD1;         /* Light Beige */
+  --orange-light: #FFB569;        /* Light Orange */
+  --orange-color: #FF7D00;        /* Orange */
+  --dark-S-color: #BC5308;        /* Dark Brown */
+  --dark-color: #78290F;          /* Dark Brown */
+
+  /* Fonts */
+  --heading-font: 'Bebas Neue', sans-serif;
+  --body-font: 'Raleway', sans-serif;
+
+  /* Spacing */
+  --section-padding: 50px 20px;
+  --card-padding: 20px;
+  --border-radius: 10px;
+}
+
+/* ============== Base Styles ============== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-color) var(--light-color);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--body-font);
+  background-color: var(--light-color);
+  color: var(--primary-color);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ============== Typography ============== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font);
+  font-weight: 400;
+  color: var(--dark-color);
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+/* ============== Layout Components ============== */
+.section {
+  padding: var(--section-padding);
+  background-color: var(--light-color);
+  border-radius: var(--border-radius);
+  margin: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sec-diff {
+  background-color: rgba(177, 190, 176, 0.25);
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* ============== Navigation ============== */
+nav {
+  background-color: var(--primary-color);
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.nav-link {
+  color: var(--light-color);
+  font-size: 1.1rem;
+  padding: 5px 10px;
+  border-radius: var(--border-radius);
+}
+
+.nav-link:hover {
+  color: var(--accent-color);
+}
+
+/* ============== Buttons ============== */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  font-family: var(--body-font);
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--accent-color);
+  color: var(--light-color);
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+/* ============== Cards ============== */
+.card {
+  background-color: var(--light-color);
+  border: 1px solid var(--accent-color);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+  padding: var(--card-padding);
+}
+
+/* ============== Loading Screen ============== */
+#content-loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: opacity 0.5s ease;
+}
+
+.spinner {
+  border: 4px solid var(--accent-color);
+  border-top: 4px solid var(--light-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ============== Watermark ============== */
+#watermark {
+  position: fixed;
+  opacity: 0.05;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* ============== Dark Mode Styles ============== */
+body.dark-mode {
+  background-color: var(--background-dark);
+  color: var(--light-color);
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+  color: var(--orange-color);
+}
+
+body.dark-mode .card {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+}
+
+body.dark-mode .spinner {
+  border: 4px solid var(--orange-color);
+  border-top: 4px solid var(--background-dark);
+}
+
+/* ============== Scrollbar Styles ============== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light-color);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 10px;
+  border: 3px solid var(--light-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color);
+}
+
+body.dark-mode::-webkit-scrollbar-track {
+  background: var(--background-dark);
+}
+
+body.dark-mode::-webkit-scrollbar-thumb {
+  background: var(--orange-color);
+  border: 3px solid var(--background-dark);
+}
+
+body.dark-mode::-webkit-scrollbar-thumb:hover {
+  background: var(--orange-light);
+}
+
+/* ============== Responsive Design ============== */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .section {
+    margin: 10px;
+    padding: 30px 15px;
+  }
+
+  .card {
+    margin-bottom: 15px;
+  }
+}
+
+/* ============== Utility Classes ============== */
+.text-center {
+  text-align: center;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem;
+}
+
+.shadow-sm {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ============== Course Cards Specific ============== */
+.course-card {
+  position: relative;
+  height: 300px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.course-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.course-card .card-body {
+  position: relative;
+  z-index: 2;
+  color: white;
+}
+
+/* ============== Contact Section ============== */
+#contact .card {
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#contact .card-title {
+  font-size: 1.8rem;
+}
+
+#contact .form-label {
+  font-weight: bold;
+}
+
+/* ============== Social Icons ============== */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.social-icon {
+  font-size: 24px;
+  color: var(--secondary-color);
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: var(--accent-color);
+}
+
+/* ============== Animations ============== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
